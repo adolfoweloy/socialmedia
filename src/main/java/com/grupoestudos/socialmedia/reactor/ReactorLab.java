@@ -20,5 +20,25 @@ public class ReactorLab {
 				.map(keyAndCount -> keyAndCount.getT1() + " => " + keyAndCount.getT2())
 			.subscribe(System.out::println);
 
+		// does not execute getSomething until subscribe is invoked
+		Mono<String> supplierMono = Mono.fromSupplier(() -> getSomething());
+		System.out.println("before subscribing");
+		supplierMono.subscribe((res) -> {
+			System.out.println(res);
+		});
+
+		System.out.println();
+
+		// executes getSomething before subscribe is invoked
+		Mono<String> monoString = Mono.just(getSomething());
+		System.out.println("before subscribing");
+		monoString.subscribe((res) -> {
+			System.out.println(res);
+		});
+	}
+
+	private static String getSomething() {
+		System.out.println("getSomething");
+		return "sample";
 	}
 }
