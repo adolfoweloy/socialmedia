@@ -4,6 +4,9 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		maven {
+			url "http://repo.spring.io/milestone"
+		}
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -26,11 +29,14 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-webflux')
-
 	// supports multipart file uploads
 	compile('org.synchronoss.cloud:nio-multipart-parser:1.1.0')
 
-	compileOnly('org.projectlombok:lombok')
+	// https://mvnrepository.com/artifact/io.projectreactor/reactor-core
+//	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.1.5.RELEASE'
+
+
+	compile('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')
 }
