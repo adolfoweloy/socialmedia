@@ -34,9 +34,10 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/io.projectreactor/reactor-core
 //	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.1.5.RELEASE'
-
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
 
 	compile('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')
+	testCompile("de.flapdoodle.embed:de.flapdoodle.embed.mongo")
 }
