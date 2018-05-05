@@ -1,7 +1,0 @@
-#logging:
-#  level:
-#    io.netty: DEBUG
-#    reactor: DEBUG
-
-spring.data.mongodb:
-  uri: mongodb://localhost/socialmedia
